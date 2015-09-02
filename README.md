@@ -1,5 +1,5 @@
 # gulp.spritesmith-multi
-A wrapper for [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith) to generating multiple sprites and stylesheets.
+A wrapper for [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith) to generate multiple sprites and stylesheets.
 
 ## Example
 
