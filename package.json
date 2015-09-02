@@ -1,0 +1,43 @@
+{
+  "name": "gulp.spritesmith-multi",
+  "version": "0.0.1",
+  "description": "gulp spritesmith",
+  "main": "index.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "dependencies": {
+    "end-of-stream": "^1.1.0",
+    "gulp.spritesmith": "^4.0.0",
+    "handlebars": "^3.0.3",
+    "merge-stream": "^1.0.0",
+    "sink-transform": "^1.0.0",
+    "util-mix": "^2.0.0"
+  },
+  "devDependencies": {
+    "del": "^2.0.0",
+    "eslint": "^1.3.1",
+    "gulp": "^3.9.0",
+    "tap": "^1.3.2"
+  },
+  "scripts": {
+    "test": "eslint . && tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoubin/gulp.spritesmith-multi.git"
+  },
+  "keywords": [
+    "spritesmith",
+    "gulp",
+    "sprite",
+    "css"
+  ],
+  "author": "zoubin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zoubin/gulp.spritesmith-multi/issues"
+  },
+  "homepage": "https://github.com/zoubin/gulp.spritesmith-multi#readme"
+}
