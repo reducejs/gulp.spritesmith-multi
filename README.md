@@ -15,7 +15,7 @@ gulp.task('default', function () {
 });
 ```
 
-output:
+input:
 
 ```
 ⌘ tree sp
@@ -41,6 +41,8 @@ sp
     ├── sprite3.png
     └── sprite3@2x.png
 ```
+
+output:
 
 ```
 ⌘ tree build/
