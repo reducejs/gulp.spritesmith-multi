@@ -146,7 +146,7 @@ so you can use all the features provided by it.
 For example,
 you can add a `cssTemplate` field to make custom templates.
 To make things easier,
-this package provided a function to build `cssTemplate` functions.
+this package provides a function to build `cssTemplate` functions.
 
 ## Pseudo-classes
 
