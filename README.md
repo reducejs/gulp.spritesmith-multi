@@ -1,18 +1,24 @@
 # gulp.spritesmith-multi
 A wrapper for [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith) to generate multiple sprites and stylesheets.
 
+[![npm](https://nodei.co/npm/gulp.spritesmith-multi.png?downloads=true)](https://www.npmjs.org/package/gulp.spritesmith-multi)
+
+[![version](https://img.shields.io/npm/v/gulp.spritesmith-multi.svg)](https://www.npmjs.org/package/gulp.spritesmith-multi)
+[![status](https://travis-ci.org/zoubin/gulp.spritesmith-multi.svg?branch=master)](https://travis-ci.org/zoubin/gulp.spritesmith-multi)
+[![dependencies](https://david-dm.org/zoubin/gulp.spritesmith-multi.svg)](https://david-dm.org/zoubin/gulp.spritesmith-multi)
+[![devDependencies](https://david-dm.org/zoubin/gulp.spritesmith-multi/dev-status.svg)](https://david-dm.org/zoubin/gulp.spritesmith-multi#info=devDependencies)
+
 ## Example
 
 ```javascript
-var gulp = require('gulp');
-var spritesmith = require('gulp.spritesmith-multi');
+var gulp = require('gulp')
+var spritesmith = require('gulp.spritesmith-multi')
 
 gulp.task('default', function () {
   return gulp.src('sp/**/*.png')
     .pipe(spritesmith())
     .pipe(gulp.dest('build'))
-    ;
-});
+})
 ```
 
 input:
@@ -61,13 +67,199 @@ hover.css
 
 ```css
 .sp-hover {
-  background-image: url(hover.png);
+  background-image: url(hover.png)
 }
 
 @media (-webkit-min-device-pixel-ratio: 2),
        (min-resolution: 192dpi) {
   .sp-hover {
-    background-image: url(hover@2x.png);
+    background-image: url(hover@2x.png)
+    background-size: 150px 200px
+  }
+}
+
+.sp-hover__sprite1:hover {
+  background-position: -100px 0px
+  width: 50px
+  height: 50px
+}
+.sp-hover__sprite1 {
+  background-position: -100px -50px
+  width: 50px
+  height: 50px
+}
+.sp-hover__sprite2 {
+  background-position: -100px -100px
+  width: 50px
+  height: 50px
+}
+.sp-hover__sprite3 {
+  background-position: 0px 0px
+  width: 100px
+  height: 200px
+}
+```
+
+## Options
+
+### to(iconFile)
+Specify the name of the sprite into which the given icon should be included
+
+Type: `Function`, `String`
+
+If `String`, you just get one sprite.
+
+By default, icons are grouped by their directory names.
+
+
+#### spritesmith
+Specify [options](https://github.com/twolfson/gulp.spritesmith#spritesmithparams)
+for each sprite.
+
+Type: `Object`, `Function`
+
+The following fields are set by default:
+```javascript
+var options = {
+  imgName: sprite + '.png',
+  cssName: sprite + '.css',
+  cssTemplate: builtin.css,
+  cssSpritesheetName: 'sp-' + sprite,
+}
+
+```
+
+You can override them through this option.
+
+If `Function`,
+it receives the default options,
+the sprite name specified by `options.to`
+and the related icon files (vinyl file objects).
+Modify the options object passed in, or return a new one.
+
+## Custom templates
+
+The default css template is `exports.builtin.css`.
+
+To specify custom templates,
+create a templater through `exports.util.createTemplate`,
+and set `options.spritesmith.cssTemplate` to it.
+
+```javascript
+var gulp = require('gulp')
+var path = require('path')
+var spritesmith = require('..')
+var util = spritesmith.util
+
+gulp.task('theme', ['clean'], function () {
+  var opts = {
+    spritesmith: function (options, sprite, icons){
+      if (sprite.indexOf('hover--') !== -1) {
+        options.cssTemplate = themeTemplate
+      }
+      return options
+    },
+  }
+  var themeTemplate = util.createTemplate(
+    path.join(__dirname, 'template', 'css.hbs'),
+    [addTheme, util.addPseudoClass]
+  )
+  function addTheme(data) {
+    var info = data.spritesheet_info
+    var match = info.name.match(/hover--(\w+)/)
+    data.theme = match && match[1]
+  }
+  return gulp.src('sp/**/*.png')
+    .pipe(spritesmith(opts))
+    .pipe(gulp.dest('build'))
+})
+
+```
+
+Input:
+
+The custom template
+
+```handlebars
+.{{{theme}}} .sp-hover {
+  background-image: url({{{spritesheet.escaped_image}}});
+}
+
+{{#if retina_spritesheet}}
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .{{{theme}}} .sp-hover {
+    background-image: url({{{retina_spritesheet.escaped_image}}});
+    background-size: {{spritesheet.px.width}} {{spritesheet.px.height}};
+  }
+}
+{{/if}}
+
+{{#each sprites}}
+.sp-hover__{{{name}}}{{pseudo_class}} {
+  background-position: {{px.offset_x}} {{px.offset_y}};
+  width: {{px.width}};
+  height: {{px.height}};
+}
+{{/each}}
+
+```
+
+Icons
+
+```
+⌘ tree sp/hover*
+sp/hover
+├── sprite1--hover.png
+├── sprite1--hover@2x.png
+├── sprite1.png
+├── sprite1@2x.png
+├── sprite2.png
+├── sprite2@2x.png
+├── sprite3.png
+└── sprite3@2x.png
+sp/hover--theme
+├── sprite1--hover.png
+├── sprite1--hover@2x.png
+├── sprite1.png
+├── sprite1@2x.png
+├── sprite2.png
+├── sprite2@2x.png
+├── sprite3.png
+└── sprite3@2x.png
+
+```
+
+Output:
+
+```
+⌘ tree build/
+build/
+├── hover--theme.css
+├── hover--theme.png
+├── hover--theme@2x.png
+├── hover.css
+├── hover.png
+├── hover@2x.png
+├── normal.css
+├── normal.png
+├── retina.css
+├── retina.png
+└── retina@2x.png
+
+```
+
+hover--theme.css
+
+```css
+.theme .sp-hover {
+  background-image: url(hover--theme.png);
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .theme .sp-hover {
+    background-image: url(hover--theme@2x.png);
     background-size: 150px 200px;
   }
 }
@@ -92,142 +284,62 @@ hover.css
   width: 100px;
   height: 200px;
 }
-```
-
-## stream = spritesmith(options)
-
-Generates a transform to be used in the gulp pipeline, icons in, sprites and stylesheets out.
-
-### options
-
-#### getGroupName
-
-Type: `Function`
-
-Default: `null`
-
-Receives a [vinyl](https://github.com/wearefractal/vinyl) file object (the icon file),
-and should return a string indicating the sprite into which the current icon should be included.
-
-This function splits incoming icons into several groups,
-and each group will be converted into a seperate sprite and stylesheet.
-
-By default, icons are split according to the directory where they lie.
-
-#### cssExtension
-
-Type: `String`
-
-Default: `.css`
-
-If `sass` or `less` files are going to be generated,
-probably this option is needed.
-
-#### cssSpritesheetNamePrefix
-
-Type: `String`
-
-Default: `sp-`
-
-The prefix of corresponding css classes.
-
-#### gulpSpritesmithOptionsFilter
-
-Type: `Function`
-
-Default: `null`
-
-Receives the default options and the group name,
-and should return the new options object.
-
-This options object is passed directly to [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith),
-so you can use all the features provided by it.
-
-For example,
-you can add a `cssTemplate` field to make custom templates.
-To make things easier,
-this package provides a function to build `cssTemplate` functions.
-
-## Pseudo-classes
-
-The default [template](#custom-template) supports pseudo-classes.
-
-Suppose you have `icon.png` and `icon--hover.png` in sprite `pseudo`,
-the final css will be like:
-
-```css
-.sp-pseudo {
-  background-image: url(pseudo.png)
-}
-.sp-pseudo__icon {
-  background-position: -100px -50px;
-  width: 50px;
-  height: 50px;
-}
-.sp-pseudo__icon:hover {
-  background-position: -100px 0px;
-  width: 50px;
-  height: 50px;
-}
 
 ```
 
-Retina icons will be named like `icon--hover@2x.png`.
+
 
 ## Retina support
-
 All retina icon files should be named like `xxx@2x.png`.
 
-## Custom template
+## Utils
 
-```javascript
-var templater = require('gulp.spritesmith-multi/lib/templater');
-var cssTemplate = templater(
-  path.join(__dirname, 'css.hbs'),
-  function (data) {
-    var pseudoPat = /--(\w+)$/;
-    data.sprites.forEach(function (sprite) {
-      var name = sprite.name;
-      var matches = name.match(pseudoPat);
-      if (matches && matches[1]) {
-        sprite.name = name.slice(0, -1 * (matches[1].length + 2));
-        sprite.pseudo_class = ':' + matches[1];
-      }
-    });
-    return data;
-  }
-);
-```
+### exports.util
 
-###  templater(templateInfo, filter)
+Type: `Object`
 
-#### templateInfo
+Methods to work with.
 
-Type: `String`, `Object`
+#### createTemplate(tplInfo, filter)
+Create a templater.
 
-If `String`,
-it is the path of the template file.
+##### tplInfo
+Specify template.
 
-If `Object`,
-you can pass the path via the `file` field,
-or pass the template via the `contents` field.
+Type: `Object`
 
-If a `name` field is specified,
-the corresponding template will be registered as a handlebars partial.
+* `tplInfo.file`: the file path of the handlebars template
+* `tplInfo.source`: the contents of the template
 
-#### filter
+Either one of them should be specified.
 
-Type: `Function`, `Object`
+If `tplInfo` is `String`, it is treated as a file path.
 
-Default: `null`
+##### filter
+Specify data for the template.
 
-To filter the `data` before being applied to build the stylesheet by handlebars.
+If `Array`, you are specifying an array of filters.
 
-If `Function`,
-it receives the old [data](https://github.com/twolfson/spritesheet-templates#template-data),
-and should return the new data object.
+If `Object`, it will be mixed into the default [data](https://github.com/twolfson/gulp.spritesmith#templating).
 
-If `Object`,
-it will be mixed into the old `data`.
+If `Function`, you can modify the default data object,
+or just return a new one.
 
+#### addPseudoClass
+A template data filter to support generating pseudo classes.
+
+If the icon file is something like `name--pseduoClass.png`,
+`.sp-sprite__name:pseduoClass` is created in the css,
+rather than `.sp-sprite__name--pseduoClass`.
+
+**NOTE**: for retina icons,
+you should name them like `name--pseduoClass@2x.png`.
+
+### exports.builtin
+
+Type: `Object`
+
+Templates provided by default.
+
+Pick one of them, and set `options.spritesmith.cssTemplate` to apply it.
 
