@@ -6,7 +6,7 @@ gulp.task('clean', function () {
 })
 
 gulp.task('scripts', ['clean'], function () {
-  return gulp.src(['lib/*.js', 'bin/*.js', 'index.js'], { base: process.cwd() })
+  return gulp.src(['lib/**/*', 'bin/*.js', 'index.js'], { base: process.cwd() })
     .pipe(gulp.dest('build'))
 })
 
