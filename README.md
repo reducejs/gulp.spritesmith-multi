@@ -100,6 +100,40 @@ hover.css
 }
 ```
 
+## Continuing the pipeline
+You can continue the pipeline the way the original `gulp.spritesmith` support.
+
+```javascript
+gulp.task('sprite', ['clean'], function () {
+  var merge = require('merge-stream')
+  var imagemin = require('gulp-imagemin')
+  var csso = require('gulp-csso')
+
+  // Generate our spritesheet
+  var spriteData = gulp.src('default/**/*.png')
+    .pipe(spritesmith({
+      spritesmith: function (options) {
+        options.imgPath = '../images/' + options.imgName
+      }
+    }))
+
+  // Pipe image stream through image optimizer and onto disk
+  var imgStream = spriteData.img
+    .pipe(imagemin())
+    .pipe(gulp.dest('build/images'))
+
+  // Pipe CSS stream through CSS optimizer and onto disk
+  var cssStream = spriteData.css
+    .pipe(csso())
+    .pipe(gulp.dest('build/css'))
+
+  // Return a merged stream to handle both `end` events
+  return merge(imgStream, cssStream)
+})
+
+
+```
+
 ## Options
 
 ### to(iconFile)

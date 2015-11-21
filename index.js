@@ -14,6 +14,9 @@ function gulpSpritesmith(opts) {
   opts = opts || {}
 
   var groups = {}
+  var output = thr.obj(write, end)
+  var imgStream = output.img = merge()
+  var cssStream = output.css = merge()
 
   function to(file) {
     if (typeof opts.to === 'string') {
@@ -40,9 +43,6 @@ function gulpSpritesmith(opts) {
       return done()
     }
 
-    var streams = merge()
-    var output = this
-
     sprites.forEach(function (sprite) {
       var icons = groups[sprite]
       var options = filterSmithOption(
@@ -50,22 +50,25 @@ function gulpSpritesmith(opts) {
         opts.spritesmith, sprite, icons
       )
       var gulpSpriteStream = spritesmith(options)
+
+      imgStream.add(gulpSpriteStream.img)
+      cssStream.add(gulpSpriteStream.css)
+
       icons.forEach(function (icon) {
         gulpSpriteStream.write(icon)
       })
       gulpSpriteStream.end()
-      gulpSpriteStream.file = sprite
-      streams.add(gulpSpriteStream)
     })
 
-    streams.on('error', done)
-    streams.on('data', function (file) {
-      output.push(file)
-    })
-    streams.on('end', done)
+    merge(imgStream, cssStream)
+      .on('error', done)
+      .on('data', function (file) {
+        output.push(file)
+      })
+      .on('end', done)
   }
 
-  return thr.obj(write, end)
+  return output
 }
 
 function hasRetinaIcon(icons) {
