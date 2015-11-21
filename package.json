@@ -8,8 +8,8 @@
     "test": "test"
   },
   "dependencies": {
-    "gulp.spritesmith": "^4.0.0",
-    "handlebars": "^3.0.3",
+    "gulp.spritesmith": "^5.0.1",
+    "handlebars": "^4.0.5",
     "merge-stream": "^1.0.0",
     "through2": "^2.0.0",
     "util-mix": "^3.0.2"
@@ -21,7 +21,7 @@
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.0.0",
     "gulp-istanbul": "^0.10.1",
-    "gulp-tape": "0.0.5",
+    "gulp-tape": "0.0.6",
     "tap-spec": "^4.1.0",
     "tape": "^4.2.0",
     "task-tape": "^1.0.0"
