@@ -1,4 +1,20 @@
-<!-- LATEST ec0622f -->
+<!-- LATEST 394da0b -->
+
+## [v2.1.0](https://github.com/zoubin/gulp.spritesmith-multi/commit/394da0b) (2015-11-21)
+
+* [ 2015-11-21 [e7545bd](https://github.com/zoubin/gulp.spritesmith-multi/commit/e7545bd) ] Travis: stable, 4, 0.12
+
+* [ 2015-11-21 [594302f](https://github.com/zoubin/gulp.spritesmith-multi/commit/594302f) ] Support separate image and css streams
+
+* [ 2015-11-21 [50ff066](https://github.com/zoubin/gulp.spritesmith-multi/commit/50ff066) ] Update dependencies
+    
+    * `gulp.spritesmith` to 5.0.1
+    * `handlebars` to 4.0.5
+    * `gulp-tape` to 0.0.6
+
+* [ 2015-11-11 [e25edf2](https://github.com/zoubin/gulp.spritesmith-multi/commit/e25edf2) ] Travis: node 5
+
+* [ 2015-11-11 [574f188](https://github.com/zoubin/gulp.spritesmith-multi/commit/574f188) ] CHANGELOG
 
 ## [v2.0.1](https://github.com/zoubin/gulp.spritesmith-multi/commit/ec0622f) (2015-11-11)
 
