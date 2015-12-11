@@ -1,6 +1,6 @@
 var path = require('path')
 var thr = require('through2')
-var mix = require('util-mix')
+var mix = require('mixy')
 var merge = require('merge-stream')
 var spritesmith = require('gulp.spritesmith')
 

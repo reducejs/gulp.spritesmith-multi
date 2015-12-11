@@ -1,5 +1,5 @@
 var fs = require('fs')
-var test = require('tape')
+var test = require('tap').test
 var spritesmith = require('..')
 var del = require('del')
 var path = require('path')
@@ -49,16 +49,16 @@ test(
   })
 )
 
-function runTest(dir, opts, t, cb) {
-  runSequence([
+function runTest(dir, opts, t) {
+  return runSequence([
     clean,
     function () {
       return gulp.src('**/*.png', { cwd: fixtures('src', dir) })
         .pipe(spritesmith(opts))
         .pipe(gulp.dest(fixtures('build')))
     },
-  ], function (err) {
-    t.error(err)
+  ])
+  .then(function () {
     var files = fs.readdirSync(fixtures('expected', dir))
     files.forEach(function (f) {
       t.same(
@@ -66,7 +66,6 @@ function runTest(dir, opts, t, cb) {
         fs.readFileSync(fixtures('expected', dir, f))
       )
     })
-    cb()
   })
 }
 

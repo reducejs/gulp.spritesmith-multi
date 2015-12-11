@@ -5,7 +5,6 @@ ecmaFeatures:
 env:
   browser: true
   node: true
-  es6: true
 
 rules:
   comma-dangle: [2, "always-multiline"]
@@ -29,13 +28,12 @@ rules:
   use-isnan: 2
   valid-typeof: 2
   no-unexpected-multiline: 2
-  no-cond-assign: 2
   no-constant-condition: 2
   no-control-regex: 2
   no-debugger: 2
   # code style
   consistent-return: 0
-  curly: 2
+  curly: [2, "multi-line"]
   default-case: 2
   dot-notation: 2
   dot-location: [2, "property"]

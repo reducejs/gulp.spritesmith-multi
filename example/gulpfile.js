@@ -47,6 +47,7 @@ gulp.task('sprite', ['clean'], function () {
     .pipe(spritesmith({
       spritesmith: function (options) {
         options.imgPath = '../images/' + options.imgName
+        options.retinaImgPath = '../images/' + options.retinaImgName
       }
     }))
 
