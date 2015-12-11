@@ -1,12 +1,10 @@
 # gulp.spritesmith-multi
-A wrapper for [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith) to generate multiple sprites and stylesheets.
-
-[![npm](https://nodei.co/npm/gulp.spritesmith-multi.png?downloads=true)](https://www.npmjs.org/package/gulp.spritesmith-multi)
-
 [![version](https://img.shields.io/npm/v/gulp.spritesmith-multi.svg)](https://www.npmjs.org/package/gulp.spritesmith-multi)
 [![status](https://travis-ci.org/zoubin/gulp.spritesmith-multi.svg?branch=master)](https://travis-ci.org/zoubin/gulp.spritesmith-multi)
 [![dependencies](https://david-dm.org/zoubin/gulp.spritesmith-multi.svg)](https://david-dm.org/zoubin/gulp.spritesmith-multi)
 [![devDependencies](https://david-dm.org/zoubin/gulp.spritesmith-multi/dev-status.svg)](https://david-dm.org/zoubin/gulp.spritesmith-multi#info=devDependencies)
+
+A wrapper for [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith) to generate multiple sprites and stylesheets.
 
 ## Example
 
