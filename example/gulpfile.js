@@ -7,6 +7,13 @@ gulp.task('clean', function () {
   return del(path.join(__dirname, 'build'))
 })
 
+gulp.task('empty', ['clean'], function () {
+  return gulp.src('empty/**/*.png')
+    .pipe(spritesmith())
+    .css
+    .pipe(gulp.dest('build'))
+})
+
 gulp.task('default', ['clean'], function () {
   return gulp.src('default/**/*.png')
     .pipe(spritesmith())

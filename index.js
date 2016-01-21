@@ -15,8 +15,9 @@ function gulpSpritesmith(opts) {
 
   var groups = {}
   var output = thr.obj(write, end)
-  var imgStream = output.img = merge()
-  var cssStream = output.css = merge()
+  var wait = thr.obj()
+  var imgStream = output.img = merge(wait)
+  var cssStream = output.css = merge(wait)
 
   function to(file) {
     if (typeof opts.to === 'string') {
@@ -38,6 +39,7 @@ function gulpSpritesmith(opts) {
   }
 
   function end(done) {
+    wait.end()
     var sprites = Object.keys(groups)
     if (sprites.length === 0) {
       return done()
