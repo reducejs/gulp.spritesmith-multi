@@ -1,4 +1,12 @@
-<!-- 1116ba1 1449811039000 -->
+<!-- 20b19cb 1453369975000 -->
+
+## [v2.2.1](https://github.com/zoubin/gulp.spritesmith-multi/commit/20b19cb) (2016-01-21)
+
+* [[`423d056`](https://github.com/zoubin/gulp.spritesmith-multi/commit/423d056)] Fix pending tasks in empty cases
+
+* [[`6e6d4a6`](https://github.com/zoubin/gulp.spritesmith-multi/commit/6e6d4a6)] Update readme
+
+* [[`2ce6f9f`](https://github.com/zoubin/gulp.spritesmith-multi/commit/2ce6f9f)] CHANGELOG
 
 ## [v2.2.0](https://github.com/zoubin/gulp.spritesmith-multi/commit/1116ba1) (2015-12-11)
 
