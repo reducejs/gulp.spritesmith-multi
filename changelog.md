@@ -1,4 +1,12 @@
-<!-- 20b19cb 1453369975000 -->
+<!-- 0bcab22 1453433556000 -->
+
+## [v2.2.2](https://github.com/zoubin/gulp.spritesmith-multi/commit/0bcab22) (2016-01-22)
+
+* [[`05dcad4`](https://github.com/zoubin/gulp.spritesmith-multi/commit/05dcad4)] Update example
+
+* [[`cb100b4`](https://github.com/zoubin/gulp.spritesmith-multi/commit/cb100b4)] Handle error
+
+* [[`5550e64`](https://github.com/zoubin/gulp.spritesmith-multi/commit/5550e64)] CHANGELOG
 
 ## [v2.2.1](https://github.com/zoubin/gulp.spritesmith-multi/commit/20b19cb) (2016-01-21)
 
