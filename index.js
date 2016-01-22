@@ -1,6 +1,7 @@
 var path = require('path')
 var thr = require('through2')
 var mix = require('mixy')
+var util = require('util')
 var merge = require('merge-stream')
 var spritesmith = require('gulp.spritesmith')
 
@@ -56,6 +57,10 @@ function gulpSpritesmith(opts) {
       imgStream.add(gulpSpriteStream.img)
       cssStream.add(gulpSpriteStream.css)
 
+      gulpSpriteStream.on('error', errorHandler(output, sprite))
+      gulpSpriteStream.img.on('error', errorHandler(imgStream, sprite))
+      gulpSpriteStream.css.on('error', errorHandler(cssStream, sprite))
+
       icons.forEach(function (icon) {
         gulpSpriteStream.write(icon)
       })
@@ -71,6 +76,29 @@ function gulpSpritesmith(opts) {
   }
 
   return output
+}
+
+function errorHandler(target, sprite) {
+  return function (err) {
+    if (!/Retina settings detected/.test(err.message)) {
+      return target.emit('error', err)
+    }
+
+    var message = util.format(
+      'Unmatched retina images found when creating sprite `%s`. %d retina images expected to line up against %d normal images.',
+      sprite,
+      err.retinaImages.length,
+      err.images.length
+    )
+    var error = new Error(message)
+    error['normal images'] = err.images.map(function (img) {
+      return img.path
+    })
+    error['retina images'] = err.retinaImages.map(function (img) {
+      return img.path
+    })
+    target.emit('error', error)
+  }
 }
 
 function hasRetinaIcon(icons) {

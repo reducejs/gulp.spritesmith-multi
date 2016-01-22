@@ -17,7 +17,14 @@ gulp.task('empty', ['clean'], function () {
 gulp.task('default', ['clean'], function () {
   return gulp.src('default/**/*.png')
     .pipe(spritesmith())
+    .on('error', function (err) {
+      console.log(err)
+    })
     .pipe(gulp.dest('build'))
+})
+
+gulp.task('watch', ['default'], function (cb) {
+  gulp.watch('default/**/*.png', ['default'])
 })
 
 gulp.task('theme', ['clean'], function () {
