@@ -12,11 +12,19 @@ A wrapper for [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith) t
 var gulp = require('gulp')
 var spritesmith = require('gulp.spritesmith-multi')
 
-gulp.task('default', function () {
-  return gulp.src('sp/**/*.png')
+gulp.task('default', ['clean'], function () {
+  return gulp.src('default/**/*.png')
     .pipe(spritesmith())
+    .on('error', function (err) {
+      console.log(err)
+    })
     .pipe(gulp.dest('build'))
 })
+
+gulp.task('watch', ['default'], function (cb) {
+  gulp.watch('default/**/*.png', ['default'])
+})
+
 ```
 
 input:
