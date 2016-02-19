@@ -1,67 +1,71 @@
-<!-- 0bcab22 1453433556000 -->
+<!-- c64840a 1455872888000 -->
 
-## [v2.2.2](https://github.com/zoubin/gulp.spritesmith-multi/commit/0bcab22) (2016-01-22)
+* [[`c64840a`](https://github.com/reducejs/gulp.spritesmith-multi/commit/c64840a)] new fork
 
-* [[`05dcad4`](https://github.com/zoubin/gulp.spritesmith-multi/commit/05dcad4)] Update example
+* [[`743654d`](https://github.com/reducejs/gulp.spritesmith-multi/commit/743654d)] CHANGELOG
 
-* [[`cb100b4`](https://github.com/zoubin/gulp.spritesmith-multi/commit/cb100b4)] Handle error
+## [v2.2.2](https://github.com/reducejs/gulp.spritesmith-multi/commit/0bcab22) (2016-01-22)
 
-* [[`5550e64`](https://github.com/zoubin/gulp.spritesmith-multi/commit/5550e64)] CHANGELOG
+* [[`05dcad4`](https://github.com/reducejs/gulp.spritesmith-multi/commit/05dcad4)] Update example
 
-## [v2.2.1](https://github.com/zoubin/gulp.spritesmith-multi/commit/20b19cb) (2016-01-21)
+* [[`cb100b4`](https://github.com/reducejs/gulp.spritesmith-multi/commit/cb100b4)] Handle error
 
-* [[`423d056`](https://github.com/zoubin/gulp.spritesmith-multi/commit/423d056)] Fix pending tasks in empty cases
+* [[`5550e64`](https://github.com/reducejs/gulp.spritesmith-multi/commit/5550e64)] CHANGELOG
 
-* [[`6e6d4a6`](https://github.com/zoubin/gulp.spritesmith-multi/commit/6e6d4a6)] Update readme
+## [v2.2.1](https://github.com/reducejs/gulp.spritesmith-multi/commit/20b19cb) (2016-01-21)
 
-* [[`2ce6f9f`](https://github.com/zoubin/gulp.spritesmith-multi/commit/2ce6f9f)] CHANGELOG
+* [[`423d056`](https://github.com/reducejs/gulp.spritesmith-multi/commit/423d056)] Fix pending tasks in empty cases
 
-## [v2.2.0](https://github.com/zoubin/gulp.spritesmith-multi/commit/1116ba1) (2015-12-11)
+* [[`6e6d4a6`](https://github.com/reducejs/gulp.spritesmith-multi/commit/6e6d4a6)] Update readme
 
-* [[`356510a`](https://github.com/zoubin/gulp.spritesmith-multi/commit/356510a)] Update deps
+* [[`2ce6f9f`](https://github.com/reducejs/gulp.spritesmith-multi/commit/2ce6f9f)] CHANGELOG
 
-* [[`9176b3c`](https://github.com/zoubin/gulp.spritesmith-multi/commit/9176b3c)] CHANGELOG
+## [v2.2.0](https://github.com/reducejs/gulp.spritesmith-multi/commit/1116ba1) (2015-12-11)
 
-## [v2.1.0](https://github.com/zoubin/gulp.spritesmith-multi/commit/394da0b) (2015-11-21)
+* [[`356510a`](https://github.com/reducejs/gulp.spritesmith-multi/commit/356510a)] Update deps
 
-* [[`e7545bd`](https://github.com/zoubin/gulp.spritesmith-multi/commit/e7545bd)] Travis: stable, 4, 0.12
+* [[`9176b3c`](https://github.com/reducejs/gulp.spritesmith-multi/commit/9176b3c)] CHANGELOG
 
-* [[`594302f`](https://github.com/zoubin/gulp.spritesmith-multi/commit/594302f)] Support separate image and css streams
+## [v2.1.0](https://github.com/reducejs/gulp.spritesmith-multi/commit/394da0b) (2015-11-21)
 
-* [[`50ff066`](https://github.com/zoubin/gulp.spritesmith-multi/commit/50ff066)] Update dependencies
+* [[`e7545bd`](https://github.com/reducejs/gulp.spritesmith-multi/commit/e7545bd)] Travis: stable, 4, 0.12
+
+* [[`594302f`](https://github.com/reducejs/gulp.spritesmith-multi/commit/594302f)] Support separate image and css streams
+
+* [[`50ff066`](https://github.com/reducejs/gulp.spritesmith-multi/commit/50ff066)] Update dependencies
 
     
     * `gulp.spritesmith` to 5.0.1
     * `handlebars` to 4.0.5
     * `gulp-tape` to 0.0.6
 
-* [[`e25edf2`](https://github.com/zoubin/gulp.spritesmith-multi/commit/e25edf2)] Travis: node 5
+* [[`e25edf2`](https://github.com/reducejs/gulp.spritesmith-multi/commit/e25edf2)] Travis: node 5
 
-* [[`574f188`](https://github.com/zoubin/gulp.spritesmith-multi/commit/574f188)] CHANGELOG
+* [[`574f188`](https://github.com/reducejs/gulp.spritesmith-multi/commit/574f188)] CHANGELOG
 
-## [v2.0.1](https://github.com/zoubin/gulp.spritesmith-multi/commit/ec0622f) (2015-11-11)
+## [v2.0.1](https://github.com/reducejs/gulp.spritesmith-multi/commit/ec0622f) (2015-11-11)
 
-* [[`94dfd5f`](https://github.com/zoubin/gulp.spritesmith-multi/commit/94dfd5f)] Fix, gulp build, move template to build directory
+* [[`94dfd5f`](https://github.com/reducejs/gulp.spritesmith-multi/commit/94dfd5f)] Fix, gulp build, move template to build directory
 
-* [[`736144f`](https://github.com/zoubin/gulp.spritesmith-multi/commit/736144f)] remove unused file
+* [[`736144f`](https://github.com/reducejs/gulp.spritesmith-multi/commit/736144f)] remove unused file
 
-* [[`c817adc`](https://github.com/zoubin/gulp.spritesmith-multi/commit/c817adc)] remove build directory
+* [[`c817adc`](https://github.com/reducejs/gulp.spritesmith-multi/commit/c817adc)] remove build directory
 
-## [v2.0.0](https://github.com/zoubin/gulp.spritesmith-multi/commit/7c8b579) (2015-10-30)
+## [v2.0.0](https://github.com/reducejs/gulp.spritesmith-multi/commit/7c8b579) (2015-10-30)
 
-* [[`ba2636b`](https://github.com/zoubin/gulp.spritesmith-multi/commit/ba2636b)] breaking changes: refactor code
+* [[`ba2636b`](https://github.com/reducejs/gulp.spritesmith-multi/commit/ba2636b)] breaking changes: refactor code
 
-* [[`aa61691`](https://github.com/zoubin/gulp.spritesmith-multi/commit/aa61691)] readme
+* [[`aa61691`](https://github.com/reducejs/gulp.spritesmith-multi/commit/aa61691)] readme
 
-* [[`639cafb`](https://github.com/zoubin/gulp.spritesmith-multi/commit/639cafb)] readme
+* [[`639cafb`](https://github.com/reducejs/gulp.spritesmith-multi/commit/639cafb)] readme
 
-* [[`0193686`](https://github.com/zoubin/gulp.spritesmith-multi/commit/0193686)] deps
+* [[`0193686`](https://github.com/reducejs/gulp.spritesmith-multi/commit/0193686)] deps
 
-* [[`56b1837`](https://github.com/zoubin/gulp.spritesmith-multi/commit/56b1837)] readme
+* [[`56b1837`](https://github.com/reducejs/gulp.spritesmith-multi/commit/56b1837)] readme
 
-## [v1.0.0](https://github.com/zoubin/gulp.spritesmith-multi/commit/acac3d2) (2015-09-02)
+## [v1.0.0](https://github.com/reducejs/gulp.spritesmith-multi/commit/acac3d2) (2015-09-02)
 
-* [[`bb4a44c`](https://github.com/zoubin/gulp.spritesmith-multi/commit/bb4a44c)] multiple sprites and stylesheets
+* [[`bb4a44c`](https://github.com/reducejs/gulp.spritesmith-multi/commit/bb4a44c)] multiple sprites and stylesheets
 
-* [[`eec57b5`](https://github.com/zoubin/gulp.spritesmith-multi/commit/eec57b5)] Initial commit
+* [[`eec57b5`](https://github.com/reducejs/gulp.spritesmith-multi/commit/eec57b5)] Initial commit
 
