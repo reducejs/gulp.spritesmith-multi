@@ -13,20 +13,21 @@
   "devDependencies": {
     "callback-sequence": "^3.0.0",
     "del": "^2.0.0",
-    "eslint": "^1.10.1",
+    "eslint": "^2.1.0",
     "gulp": "^3.9.0",
     "gulp-csso": "^1.0.1",
     "gulp-imagemin": "^2.4.0",
     "tap": "^5.0.0"
   },
   "scripts": {
-    "test": "npm run lint && tap --cov test/*.js",
+    "test": "npm run lint && tap test/*.js",
+    "cov": "tap --cov test/*.js",
     "lint": "eslint *.js 'lib/**/*.js' test/*.js bin/*.js",
-    "coveralls": "COVERALLS_REPO_TOKEN=REPO_TOKEN npm test"
+    "coveralls": "COVERALLS_REPO_TOKEN=BJcooCig6VD9s8fRm2YPFv6mmvrPUhXoh npm run cov"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zoubin/gulp.spritesmith-multi.git"
+    "url": "git+https://github.com/reducejs/gulp.spritesmith-multi.git"
   },
   "keywords": [
     "spritesmith",
@@ -37,7 +38,7 @@
   "author": "zoubin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zoubin/gulp.spritesmith-multi/issues"
+    "url": "https://github.com/reducejs/gulp.spritesmith-multi/issues"
   },
-  "homepage": "https://github.com/zoubin/gulp.spritesmith-multi#readme"
+  "homepage": "https://github.com/reducejs/gulp.spritesmith-multi#readme"
 }

@@ -1,8 +1,10 @@
 # gulp.spritesmith-multi
 [![version](https://img.shields.io/npm/v/gulp.spritesmith-multi.svg)](https://www.npmjs.org/package/gulp.spritesmith-multi)
-[![status](https://travis-ci.org/zoubin/gulp.spritesmith-multi.svg?branch=master)](https://travis-ci.org/zoubin/gulp.spritesmith-multi)
-[![dependencies](https://david-dm.org/zoubin/gulp.spritesmith-multi.svg)](https://david-dm.org/zoubin/gulp.spritesmith-multi)
-[![devDependencies](https://david-dm.org/zoubin/gulp.spritesmith-multi/dev-status.svg)](https://david-dm.org/zoubin/gulp.spritesmith-multi#info=devDependencies)
+[![status](https://travis-ci.org/reducejs/gulp.spritesmith-multi.svg?branch=master)](https://travis-ci.org/reducejs/gulp.spritesmith-multi)
+[![coverage](https://img.shields.io/coveralls/reducejs/gulp.spritesmith-multi.svg)](https://coveralls.io/github/reducejs/gulp.spritesmith-multi)
+[![dependencies](https://david-dm.org/reducejs/gulp.spritesmith-multi.svg)](https://david-dm.org/reducejs/gulp.spritesmith-multi)
+[![devDependencies](https://david-dm.org/reducejs/gulp.spritesmith-multi/dev-status.svg)](https://david-dm.org/reducejs/gulp.spritesmith-multi#info=devDependencies)
+![node](https://img.shields.io/node/v/gulp.spritesmith-multi.svg)
 
 A wrapper for [gulp.spritesmith](https://github.com/twolfson/gulp.spritesmith) to generate multiple sprites and stylesheets.
 
