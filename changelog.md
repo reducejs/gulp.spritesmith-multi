@@ -1,4 +1,8 @@
-<!-- c64840a 1455872888000 -->
+<!-- 4b3234c 1455872951000 -->
+
+## [v3.0.0](https://github.com/reducejs/gulp.spritesmith-multi/commit/4b3234c) (2016-02-19)
+
+* [[`802c534`](https://github.com/reducejs/gulp.spritesmith-multi/commit/802c534)] changelog
 
 * [[`c64840a`](https://github.com/reducejs/gulp.spritesmith-multi/commit/c64840a)] new fork
 
