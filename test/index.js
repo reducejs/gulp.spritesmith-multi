@@ -49,6 +49,15 @@ test(
   })
 )
 
+test(
+  'responsive-css',
+  runTest.bind(null, 'responsive-css', {
+    spritesmith: {
+      cssTemplate: spritesmith.builtin.responsiveCss,
+    },
+  })
+)
+
 function runTest(dir, opts, t) {
   return runSequence([
     clean,

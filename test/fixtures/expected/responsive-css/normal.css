@@ -1,0 +1,23 @@
+.sp-normal {
+  background-image: url(normal.png);
+}
+
+
+.sp-normal__sprite1 {
+  background-position: 100% 0;
+  background-size: 300%;
+  width: 50px;
+  height: 50px;
+}
+.sp-normal__sprite2 {
+  background-position: 100% 33.33333%;
+  background-size: 300%;
+  width: 50px;
+  height: 50px;
+}
+.sp-normal__sprite3 {
+  background-position: 0 0;
+  background-size: 150%;
+  width: 100px;
+  height: 200px;
+}
