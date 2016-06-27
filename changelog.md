@@ -1,4 +1,10 @@
-<!-- 4b3234c 1455872951000 -->
+<!-- c8cc8bb 1467007780000 -->
+
+## [v3.1.0](https://github.com/reducejs/gulp.spritesmith-multi/commit/c8cc8bb) (2016-06-27)
+
+* [[`8114c32`](https://github.com/reducejs/gulp.spritesmith-multi/commit/8114c32)] Add a builtin template for responsive sprites
+
+* [[`f7b5906`](https://github.com/reducejs/gulp.spritesmith-multi/commit/f7b5906)] changelog
 
 ## [v3.0.0](https://github.com/reducejs/gulp.spritesmith-multi/commit/4b3234c) (2016-02-19)
 
