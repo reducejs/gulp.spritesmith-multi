@@ -334,6 +334,112 @@ hover--theme.css
 ## Retina support
 All retina icon files should be named like `xxx@2x.png`.
 
+## Responsive CSS support
+
+Responsive CSS sprites are able to be resized in relative length units such as `rem`
+which is practical in creating perfectly scalable layout.
+
+You can use a builtin template `exports.builtin.responsiveCss` to generate responsive CSS sprites.
+
+```javascript
+var gulp = require('gulp')
+var spritesmith = require('..')
+
+gulp.task('responsive-css', ['clean'], function () {
+  var opts = {
+      cssTemplate: spritesmith.builtin.responsiveCss,
+    },
+  }
+  return gulp.src('responsive-css/**/*.png')
+    .pipe(spritesmith(opts))
+    .pipe(gulp.dest('build'))
+})
+```
+
+input:
+
+```
+⌘ tree responsive-css
+responsive-css
+├── hover
+│   ├── sprite1--hover.png
+│   ├── sprite1--hover@2x.png
+│   ├── sprite1.png
+│   ├── sprite1@2x.png
+│   ├── sprite2.png
+│   ├── sprite2@2x.png
+│   ├── sprite3.png
+│   └── sprite3@2x.png
+├── normal
+│   ├── sprite1.png
+│   ├── sprite2.png
+│   └── sprite3.png
+└── retina
+    ├── sprite1.png
+    ├── sprite1@2x.png
+    ├── sprite2.png
+    ├── sprite2@2x.png
+    ├── sprite3.png
+    └── sprite3@2x.png
+```
+
+output:
+```
+⌘ tree build/
+build
+├── hover.css
+├── hover.png
+├── hover@2x.png
+├── normal.css
+├── normal.png
+├── retina.css
+├── retina.png
+└── retina@2x.png
+```
+
+hover.css
+
+```css
+.sp-hover {
+  background-image: url(hover.png);
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .sp-hover {
+    background-image: url(hover@2x.png);
+  }
+}
+
+.sp-hover__sprite1:hover {
+  background-position: 100% 0;
+  background-size: 300%;
+  width: 50px;
+  height: 50px;
+}
+.sp-hover__sprite1 {
+  background-position: 100% 33.33333%;
+  background-size: 300%;
+  width: 50px;
+  height: 50px;
+}
+.sp-hover__sprite2 {
+  background-position: 100% 66.66667%;
+  background-size: 300%;
+  width: 50px;
+  height: 50px;
+}
+.sp-hover__sprite3 {
+  background-position: 0 0;
+  background-size: 150%;
+  width: 100px;
+  height: 200px;
+}
+```
+
+Though there are default `width` and `height` in the CSS rules,
+you can override them and the background image will be resized automatically.
+
 ## Utils
 
 ### exports.util
@@ -384,4 +490,3 @@ Type: `Object`
 Templates provided by default.
 
 Pick one of them, and set `options.spritesmith.cssTemplate` to apply it.
-

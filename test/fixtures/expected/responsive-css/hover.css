@@ -1,0 +1,35 @@
+.sp-hover {
+  background-image: url(hover.png);
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .sp-hover {
+    background-image: url(hover@2x.png);
+  }
+}
+
+.sp-hover__sprite1:hover {
+  background-position: 100% 0;
+  background-size: 300%;
+  width: 50px;
+  height: 50px;
+}
+.sp-hover__sprite1 {
+  background-position: 100% 33.33333%;
+  background-size: 300%;
+  width: 50px;
+  height: 50px;
+}
+.sp-hover__sprite2 {
+  background-position: 100% 66.66667%;
+  background-size: 300%;
+  width: 50px;
+  height: 50px;
+}
+.sp-hover__sprite3 {
+  background-position: 0 0;
+  background-size: 150%;
+  width: 100px;
+  height: 200px;
+}

@@ -1,0 +1,29 @@
+.sp-retina {
+  background-image: url(retina.png);
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .sp-retina {
+    background-image: url(retina@2x.png);
+  }
+}
+
+.sp-retina__sprite1 {
+  background-position: 100% 0;
+  background-size: 300%;
+  width: 50px;
+  height: 50px;
+}
+.sp-retina__sprite2 {
+  background-position: 100% 33.33333%;
+  background-size: 300%;
+  width: 50px;
+  height: 50px;
+}
+.sp-retina__sprite3 {
+  background-position: 0 0;
+  background-size: 150%;
+  width: 100px;
+  height: 200px;
+}
