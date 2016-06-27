@@ -1,6 +1,6 @@
 {
   "name": "gulp.spritesmith-multi",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A wrapper for gulp.spritesmith to generate multiple sprites and stylesheets",
   "main": "index.js",
   "dependencies": {
