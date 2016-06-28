@@ -347,6 +347,7 @@ var spritesmith = require('..')
 
 gulp.task('responsive-css', ['clean'], function () {
   var opts = {
+    spritesmith: {
       cssTemplate: spritesmith.builtin.responsiveCss,
     },
   }
